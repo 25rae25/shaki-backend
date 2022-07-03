@@ -5,6 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { TestModule } from './apis/test/test.module';
 import { RedisClientOptions } from 'redis';
 import * as redisStore from 'cache-manager-redis-store';
+import { AppController } from './app.controller';
 
 @Module({
   imports: [
@@ -31,5 +32,6 @@ import * as redisStore from 'cache-manager-redis-store';
       isGlobal: true,
     }),
   ],
+  controllers: [AppController],
 })
 export class AppModuleLocal {}

@@ -5,7 +5,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { TestModule } from './apis/test/test.module';
 import { RedisClientOptions } from 'redis';
 import * as redisStore from 'cache-manager-redis-store';
-import { AppController } from './app.controller';
 
 @Module({
   imports: [
@@ -17,7 +16,7 @@ import { AppController } from './app.controller';
     }),
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: '10.112.128.5',
+      host: 'shaki_database',
       port: 3306,
       username: 'root',
       password: 'root',
@@ -28,10 +27,9 @@ import { AppController } from './app.controller';
     }),
     CacheModule.register<RedisClientOptions>({
       store: redisStore,
-      url: 'redis://10.112.129.3:6379',
+      url: 'redis://shaki-redis:6379',
       isGlobal: true,
     }),
   ],
-  controllers: [AppController],
 })
-export class AppModule {}
+export class AppModuleLocal {}

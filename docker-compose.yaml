@@ -10,13 +10,13 @@ services:
     ports:
       - 3000:3000
 
-  # shaki_database:
-  #   image: mysql:latest
-  #   environment:
-  #     MYSQL_DATABASE: 'test'
-  #     MYSQL_ROOT_PASSWORD: 'root'
-  #   ports:
-  #     - 3306:3306
+  shaki_database:
+    image: mysql:latest
+    environment:
+      MYSQL_DATABASE: 'test'
+      MYSQL_ROOT_PASSWORD: 'root'
+    ports:
+      - 3306:3306
 
   shaki-redis:
     image: redis:latest

@@ -10,7 +10,6 @@ type Test {
 
 type Query {
   fetchTest: [Test!]!
-  elasticSearchTest(name: String!): [String!]!
 }
 
 type Mutation {
